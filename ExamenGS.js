@@ -9,7 +9,9 @@
  */
 
 function mostCommonWord(parrafo, palabrasNoPermitidas) {
-    
+    const palabrasNoPermitidas= ["hit"];
+    const parrafo2 = 'a, a, a, a, b,b,b,c, c';
+    const palabrasNoPermitidas2 = ['a', ]
     const parrafo2 = 'a, a, a, a, b,b,b,c, c';
     const palabrasNoPermitidas2 = ['a', ]
 }

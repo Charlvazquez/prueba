@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {Tienda} = require('../models/tienda');
+const controladores = require('../controllers/examenController');
 
 router.get('/', async(req,res)=>{
     const ListaTienda = await Tienda.find();
@@ -23,30 +24,11 @@ router.get('/conteo/tiendas',async(req,res)=>{
 
 });
 
-router.get('/conteo/tiendas/abarrotes',async(req,res)=>{
-    const tiendasConteo = await Tienda.countDocuments({categoria:{nombre:'Abarrotes y Cocina'}})
-    if(!tiendasConteo){
-        res.status(500).json({success:false})
-    }
-    res.send({
-        tiendasConteo
-    });
- 
- });
+router.get('/conteo/abarrotes',controladores.getCategoria2);
 
- router.get('/conteo/tiendas/abarrotes2',async(req,res)=>{
-    const subcategoriaConteo = await Tienda.countDocuments({categoria:{nombre:"Aluminio y Herrería"}})
-   
- 
-    if(!subcategoriaConteo){
-        res.status(500).json({success:false})
-    }
-    res.send({
-     conteo:subcategoriaConteo
-    });
- 
- });
-//conteo con datos especificos busqueda por este id
+router.get('/conteo/aluminio',controladores.getCategoria);
+
+router.get('/subcategorias',controladores.getsubcategorias);
 
 
 module.exports = router;

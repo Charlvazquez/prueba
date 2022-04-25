@@ -2,9 +2,14 @@ const mongoose = require('mongoose');
 
 const tiendaSchema = mongoose.Schema({
     categoria:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref:'categorias',
-        required:true
+        nombre:{
+            type:String
+        },
+        subcategorias:[
+            {
+                nombre:String
+            }
+        ]
     },
     direccion:[{
         type: mongoose.Schema.Types.ObjectId,
