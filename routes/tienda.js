@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {Tienda} = require('../models/tienda');
 const controladores = require('../controllers/examenController');
-
+/*
 router.get('/', async(req,res)=>{
     const ListaTienda = await Tienda.find();
     if(!ListaTienda){
@@ -23,12 +23,12 @@ router.get('/conteo/tiendas',async(req,res)=>{
    });
 
 });
-
-router.get('/conteo/abarrotes',controladores.getCategoria2);
-
-router.get('/conteo/aluminio',controladores.getCategoria);
-
+*/
+/* Routing the URL to the controller. */
+router.get('/categoria/Aluminio-Herreria',controladores.getCategoria);
+router.get('/categoria/Abarrotes-Cocina',controladores.getCategoria2);
 router.get('/subcategorias',controladores.getsubcategorias);
+router.get('/tiendas-creadas',controladores.getTiendasCreadas);
 
 
 module.exports = router;
